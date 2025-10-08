@@ -1,3 +1,11 @@
+# MUST BE AT VERY TOP
+from kivy.config import Config
+
+Config.set('kivy', 'log_enable', '1')
+Config.set('kivy', 'log_level', 'debug')
+
+
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
@@ -6,11 +14,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
 from kivy.core.window import Window
-from kivymd.uix.datatables import MDDataTable
 from kivy.metrics import dp
-from tabulate import tabulate
+from kivy.utils import platform
 
-Window.size = (360, 640)  # Tamanho típico de celular
+
+if platform != "android":
+    Window.size = (360, 640)
 
 
 class MistwoodScorer:
