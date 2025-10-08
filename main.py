@@ -1,9 +1,8 @@
 # MUST BE AT VERY TOP
 from kivy.config import Config
 
-Config.set('kivy', 'log_enable', '1')
-Config.set('kivy', 'log_level', 'debug')
-
+Config.set("kivy", "log_enable", "1")
+Config.set("kivy", "log_level", "debug")
 
 
 from kivy.app import App
@@ -68,7 +67,7 @@ class ScoreApp(BoxLayout):
             grid = GridLayout(cols=2, size_hint_y=None, height=len(fields) * 50)
             for field, label in zip(fields, labels):
                 grid.add_widget(Label(text=label))
-                ti = TextInput(multiline=False, size_hint_x=None, width=70)
+                ti = TextInput(multiline=False, size_hint_x=None, width=70, input_type="number")
                 self.inputs[field] = ti
                 grid.add_widget(ti)
             content.add_widget(grid)
